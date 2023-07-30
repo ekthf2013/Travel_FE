@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/choice_page_text1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="선택한 장소"
+        tools:layout_editor_absoluteX="51dp"
+        tools:layout_editor_absoluteY="48dp"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/choice_page_text2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="여행테마"
+        tools:layout_editor_absoluteX="54dp"
+        tools:layout_editor_absoluteY="99dp"
+        tools:ignore="MissingConstraints" />
+
+    <RadioGroup
+        android:layout_width="372dp"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        tools:layout_editor_absoluteX="21dp"
+        tools:layout_editor_absoluteY="141dp"
+        tools:ignore="MissingConstraints">
+
+        <RadioButton
+            android:id="@+id/choice_page_radioBtn1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="맛집위주" />
+
+        <RadioButton
+            android:id="@+id/choice_page_radioBtn2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="볼거리위주" />
+
+        <RadioButton
+            android:id="@+id/choice_page_radioBtn3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="체험위주" />
+
+        <RadioButton
+            android:id="@+id/choice_page_radioBtn4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="힐링위주" />
+    </RadioGroup>
+
+    <RadioGroup
+        android:layout_width="369dp"
+        android:layout_height="68dp"
+        android:orientation="horizontal"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="250dp"
+        tools:ignore="MissingConstraints">
+
+        <RadioButton
+            android:id="@+id/choice_page_radioBtn5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="친구" />
+
+        <RadioButton
+            android:id="@+id/choice_page_radioBtn6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="커플" />
+
+        <RadioButton
+            android:id="@+id/choice_page_radioBtn7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="가족" />
+
+        <RadioButton
+            android:id="@+id/choice_page_radioBtn8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="혼자" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/choice_page_text3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="누구랑"
+        tools:layout_editor_absoluteX="51dp"
+        tools:layout_editor_absoluteY="222dp"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/choice_page_text4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="언제"
+        tools:layout_editor_absoluteX="51dp"
+        tools:layout_editor_absoluteY="328dp"
+        tools:ignore="MissingConstraints" />
+
+    <CalendarView
+        android:id="@+id/calendarView"
+        android:layout_width="322dp"
+        android:layout_height="341dp"
+        tools:layout_editor_absoluteX="46dp"
+        tools:layout_editor_absoluteY="359dp" />
+
+    <Button
+        android:id="@+id/choice_page_OKbtn"
+        android:layout_width="86dp"
+        android:layout_height="52dp"
+        android:background="#00FFFFFF"
+        android:text="완료"
+        android:textColor="#060606"
+        tools:layout_editor_absoluteX="162dp"
+        tools:layout_editor_absoluteY="700dp" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
