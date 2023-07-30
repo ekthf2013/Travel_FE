@@ -10,7 +10,8 @@
         android:layout_width="153dp"
         android:layout_height="53dp"
         tools:layout_editor_absoluteX="206dp"
-        tools:layout_editor_absoluteY="269dp" />
+        tools:layout_editor_absoluteY="269dp"
+        tools:ignore="MissingConstraints" />
 
     <com.google.android.material.chip.Chip
         android:id="@+id/chip2"
@@ -18,7 +19,8 @@
         android:layout_height="53dp"
         tools:layout_editor_absoluteX="206dp"
         tools:layout_editor_absoluteY="204dp"
-        tools:text="부산" />
+        tools:text="부산"
+        tools:ignore="MissingConstraints" />
 
     <EditText
         android:id="@+id/main_page_search"
@@ -28,7 +30,8 @@
         android:hint="어디로 가나요?"
         android:inputType="textPersonName"
         tools:layout_editor_absoluteX="99dp"
-        tools:layout_editor_absoluteY="74dp" />
+        tools:layout_editor_absoluteY="74dp"
+        tools:ignore="MissingConstraints" />
 
     <com.google.android.material.chip.Chip
         android:id="@+id/chip"
@@ -36,14 +39,16 @@
         android:layout_height="53dp"
         android:text="강릉"
         tools:layout_editor_absoluteX="44dp"
-        tools:layout_editor_absoluteY="204dp" />
+        tools:layout_editor_absoluteY="204dp"
+        tools:ignore="MissingConstraints" />
 
     <com.google.android.material.chip.Chip
         android:id="@+id/chip3"
         android:layout_width="153dp"
         android:layout_height="53dp"
         tools:layout_editor_absoluteX="44dp"
-        tools:layout_editor_absoluteY="269dp" />
+        tools:layout_editor_absoluteY="269dp"
+        tools:ignore="MissingConstraints" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
