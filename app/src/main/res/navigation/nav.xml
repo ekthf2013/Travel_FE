@@ -43,5 +43,13 @@
     <fragment
         android:id="@+id/choiceFragment"
         android:name="com.example.travel.ChoiceFragment"
-        android:label="ChoiceFragment" />
+        android:label="ChoiceFragment" >
+        <action
+            android:id="@+id/action_choiceFragment_to_mapFragment"
+            app:destination="@id/mapFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mapFragment"
+        android:name="com.example.travel.MapFragment"
+        android:label="MapFragment" />
 </navigation>

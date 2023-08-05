@@ -1,8 +1,11 @@
 package com.example.travel
 
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageButton
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -35,6 +38,10 @@ class MainFragment : Fragment(R.layout.main_page) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        view.findViewById<ImageButton>(R.id.main_page_btn)?.setOnClickListener {
+            findNavController().navigate(R.id.action_mainFragment_to_choiceFragment)
+        }
+
         // 메인 페이지에서 BottomNavigationView 설정
         val bottomNavView = requireActivity().findViewById<BottomNavigationView>(R.id.bottomNav)
         bottomNavView.visibility = View.VISIBLE
@@ -50,5 +57,15 @@ class MypageFragment : Fragment(R.layout.mypage){
 }
 
 class ChoiceFragment : Fragment(R.layout.choice_page){
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        view.findViewById<Button>(R.id.choice_page_OKbtn)?.setOnClickListener {
+            findNavController().navigate(R.id.action_choiceFragment_to_mapFragment)
+        }
+        val bottomNavView = requireActivity().findViewById<BottomNavigationView>(R.id.bottomNav)
+        bottomNavView.visibility = View.GONE
+    }
+}
+
+class MapFragment : Fragment(R.layout.map_page){
 
 }

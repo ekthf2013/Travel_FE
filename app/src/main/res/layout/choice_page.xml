@@ -10,8 +10,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="선택한 장소"
-        tools:layout_editor_absoluteX="51dp"
-        tools:layout_editor_absoluteY="48dp"
+        app:layout_constraintBottom_toBottomOf="@+id/choice_page_OKbtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.11"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.05"
         tools:ignore="MissingConstraints" />
 
     <TextView
@@ -19,16 +23,25 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="여행테마"
-        tools:layout_editor_absoluteX="54dp"
-        tools:layout_editor_absoluteY="99dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.105"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.112"
         tools:ignore="MissingConstraints" />
 
     <RadioGroup
-        android:layout_width="372dp"
-        android:layout_height="50dp"
+        android:id="@+id/radioGroup2"
+        android:layout_width="365dp"
+        android:layout_height="38dp"
         android:orientation="horizontal"
-        tools:layout_editor_absoluteX="21dp"
-        tools:layout_editor_absoluteY="141dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.578"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.175"
         tools:ignore="MissingConstraints">
 
         <RadioButton
@@ -61,11 +74,16 @@
     </RadioGroup>
 
     <RadioGroup
-        android:layout_width="369dp"
-        android:layout_height="68dp"
+        android:id="@+id/radioGroup"
+        android:layout_width="364dp"
+        android:layout_height="54dp"
         android:orientation="horizontal"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="250dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.642"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.33"
         tools:ignore="MissingConstraints">
 
         <RadioButton
@@ -102,8 +120,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="누구랑"
-        tools:layout_editor_absoluteX="51dp"
-        tools:layout_editor_absoluteY="222dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.102"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.26"
         tools:ignore="MissingConstraints" />
 
     <TextView
@@ -111,16 +133,24 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="언제"
-        tools:layout_editor_absoluteX="51dp"
-        tools:layout_editor_absoluteY="328dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.098"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.418"
         tools:ignore="MissingConstraints" />
 
     <CalendarView
         android:id="@+id/calendarView"
         android:layout_width="322dp"
         android:layout_height="341dp"
-        tools:layout_editor_absoluteX="46dp"
-        tools:layout_editor_absoluteY="359dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.846" />
 
     <Button
         android:id="@+id/choice_page_OKbtn"
@@ -129,8 +159,12 @@
         android:background="#00FFFFFF"
         android:text="완료"
         android:textColor="#060606"
-        tools:layout_editor_absoluteX="162dp"
-        tools:layout_editor_absoluteY="700dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.988" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
