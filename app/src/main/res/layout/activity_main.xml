@@ -18,11 +18,11 @@
         android:id="@+id/bottomNav"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#ffffff"
+        android:background="#D5D5D5"
         app:menu="@menu/nav_menu" />
 
     <!-- 메뉴의 텍스트와 아이콘 색상 지정
-    app:itemIconTint="@color/selectedcolor"
-    app:itemTextColor="@color/selectedcolor"
+        app:itemIconTint="@color/colorPrimary"
+        app:itemTextColor="@color/colorPrimary"
     !-->
 </LinearLayout>
