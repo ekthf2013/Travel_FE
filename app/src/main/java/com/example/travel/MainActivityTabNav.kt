@@ -2,22 +2,43 @@ package com.example.travel
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.setupWithNavController
+import android.widget.RelativeLayout
+import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivityBottomNav : AppCompatActivity() {
+    private val frame : RelativeLayout by lazy {
+        findViewById(R.id.fragment)
+    }
+    private val bottomNavigationView: BottomNavigationView by lazy {
+        findViewById(R.id.bottomNav)
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main_tab)
+        setContentView(R.layout.activity_main)
 
-        // setup actionbar with nav controller to show up button
-        val navHostFragment =
-            supportFragmentManager.findFragmentById(R.id.fragment) as NavHostFragment
-        val navController = navHostFragment.navController
-        // CAUTION: findNavController(R.id.fragment) in onCreate will fail.
+        supportFragmentManager.beginTransaction().add(frame.id,StartFragment()).commit()
 
-        val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottomNav)
-        bottomNavigationView?.setupWithNavController(navController)
+        bottomNavigationView.setOnItemSelectedListener { item ->
+            when(item.itemId) {
+                R.id.mainFragment -> {
+                    replaceFragment(StartFragment())
+                    true
+                }
+                R.id.routeFragment -> {
+                    replaceFragment(RouteFragment())
+                    true
+                }
+                R.id.mypageFragment -> {
+                    replaceFragment(MypageFragment())
+                    true
+                }
+                else -> false
+            }
+        }
+    }
+
+    private fun replaceFragment(fragment: Fragment) {
+            supportFragmentManager.beginTransaction().replace(frame.id, fragment).commit()
     }
 }
