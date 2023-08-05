@@ -5,32 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.google.android.material.chip.Chip
-        android:id="@+id/chip4"
-        android:layout_width="153dp"
-        android:layout_height="53dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.798"
-        android:text="여수"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.396"
-        tools:ignore="MissingConstraints" />
-
-    <com.google.android.material.chip.Chip
-        android:id="@+id/chip2"
-        android:layout_width="153dp"
-        android:layout_height="53dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.798"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.299"
-        tools:ignore="MissingConstraints"
-        tools:text="부산" />
-
     <EditText
         android:id="@+id/main_page_search"
         android:layout_width="wrap_content"
@@ -46,7 +20,33 @@
         app:layout_constraintVertical_bias="0.093"
         tools:ignore="MissingConstraints" />
 
-    <com.google.android.material.chip.Chip
+    <Button
+        android:id="@+id/chip4"
+        android:layout_width="153dp"
+        android:layout_height="53dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.798"
+        android:text="여수"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.396"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/chip2"
+        android:layout_width="153dp"
+        android:layout_height="53dp"
+        android:text="부산"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.798"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.299"
+        tools:ignore="MissingConstraints" />
+
+    <Button
         android:id="@+id/chip"
         android:layout_width="153dp"
         android:layout_height="53dp"
@@ -59,7 +59,7 @@
         app:layout_constraintVertical_bias="0.3"
         tools:ignore="MissingConstraints" />
 
-    <com.google.android.material.chip.Chip
+    <Button
         android:id="@+id/chip3"
         android:layout_width="153dp"
         android:layout_height="53dp"
@@ -71,6 +71,18 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.396"
         tools:ignore="MissingConstraints" />
+
+    <ImageButton
+        android:id="@+id/main_page_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.853"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.093"
+        app:srcCompat="@drawable/baseline_local_airport_24" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

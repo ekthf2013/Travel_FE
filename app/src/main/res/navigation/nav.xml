@@ -7,7 +7,11 @@
     <fragment
         android:id="@+id/mainFragment"
         android:name="com.example.travel.MainFragment"
-        android:label="MainFragment" />
+        android:label="MainFragment" >
+        <action
+            android:id="@+id/action_mainFragment_to_choiceFragment"
+            app:destination="@id/choiceFragment" />
+    </fragment>
     <fragment
         android:id="@+id/startFragment"
         android:name="com.example.travel.StartFragment"
@@ -36,4 +40,8 @@
         android:id="@+id/mypageFragment"
         android:name="com.example.travel.MypageFragment"
         android:label="MypageFragment" />
+    <fragment
+        android:id="@+id/choiceFragment"
+        android:name="com.example.travel.ChoiceFragment"
+        android:label="ChoiceFragment" />
 </navigation>

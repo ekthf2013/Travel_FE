@@ -48,3 +48,7 @@ class RouteFragment : Fragment(R.layout.recom_route_page){
 class MypageFragment : Fragment(R.layout.mypage){
 
 }
+
+class ChoiceFragment : Fragment(R.layout.choice_page){
+
+}
