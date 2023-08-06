@@ -1,22 +1,32 @@
 package com.example.travel
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.CheckBox
+import android.widget.EditText
 import android.widget.ImageButton
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
-class StartFragment : Fragment(R.layout.start_page){
+class StartFragment : Fragment(R.layout.start_page) {
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+        val name = view.findViewById<EditText>(R.id.sign_in_name)
+        val signInButton = view.findViewById<Button>(R.id.sign_in_btn)
+
         //로그인 버튼 눌렀을 때 메인 화면으로 전환
-        view.findViewById<Button>(R.id.sign_in_btn)?.setOnClickListener {
+        signInButton?.setOnClickListener {
+            val userInput = name.text.toString() // 사용자가 입력한 값을 여기서 가져옴
             findNavController().navigate(R.id.action_startFragment_to_mainFragment)
+            showToast(requireActivity(),"$userInput 님 환영합니다.")
         }
+
         //회원가입 버튼 눌렀을 때 회원가입 화면으로 전환
         view.findViewById<Button>(R.id.sign_up_btn)?.setOnClickListener {
             findNavController().navigate(R.id.action_startFragment_to_signupFragment)
@@ -24,16 +34,47 @@ class StartFragment : Fragment(R.layout.start_page){
         val bottomNavView = requireActivity().findViewById<BottomNavigationView>(R.id.bottomNav)
         bottomNavView.visibility = View.GONE
     }
+    private fun showToast(context: Context, message: String) {
+        Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
+    }
 }
-class SignupFragment : Fragment(R.layout.sign_up_page){
-    //가입버튼을 눌렀을때 다시 로그인 페이지로 전환
+
+class SignupFragment : Fragment(R.layout.sign_up_page) {
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        view.findViewById<Button>(R.id.sign_up_page_btn)?.setOnClickListener {
-            findNavController().navigate(R.id.action_signupFragment_to_startFragment)
+        val checkBox = view.findViewById<CheckBox>(R.id.sign_up_checkBox)
+        val signUpButton = view.findViewById<Button>(R.id.sign_up_page_btn)
+
+        // 초기값 설정
+        var isChecked = false
+
+        // 체크박스 상태 변경 리스너
+        checkBox.setOnCheckedChangeListener { buttonView, isCheckedNow ->
+            isChecked = isCheckedNow
+            updateButtonListener(signUpButton, isChecked)
+        }
+
+        // 초기 버튼 리스너 설정
+        updateButtonListener(signUpButton, isChecked)
+    }
+
+    private fun updateButtonListener(button: Button, isChecked: Boolean) {
+        button.setOnClickListener {
+            if (isChecked) {
+                showToast(requireContext(), "가입에 성공하였습니다.")
+                findNavController().navigate(R.id.action_signupFragment_to_startFragment)
+            } else {
+                showToast(it.context, "정보제공 동의해주세요.")
+            }
         }
     }
 
+    private fun showToast(context: Context, message: String) {
+        Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
+    }
 }
+
+
 class MainFragment : Fragment(R.layout.main_page) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
