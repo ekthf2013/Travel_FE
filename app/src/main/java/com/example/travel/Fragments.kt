@@ -9,21 +9,28 @@ import android.widget.Button
 import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.ImageButton
+import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
+private lateinit var auth: FirebaseAuth
 class StartFragment : Fragment(R.layout.start_page) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        // Initialize Firebase Auth
+        auth = Firebase.auth
         val name = view.findViewById<EditText>(R.id.sign_in_name)
         val signInButton = view.findViewById<Button>(R.id.sign_in_btn)
 
         //로그인 버튼 눌렀을 때 메인 화면으로 전환
         signInButton?.setOnClickListener {
+            Login()
             val userInput = name.text.toString() // 사용자가 입력한 값을 여기서 가져옴
-            findNavController().navigate(R.id.action_startFragment_to_mainFragment)
             showToast(requireActivity(),"$userInput 님 환영합니다.")
         }
 
@@ -34,14 +41,28 @@ class StartFragment : Fragment(R.layout.start_page) {
         val bottomNavView = requireActivity().findViewById<BottomNavigationView>(R.id.bottomNav)
         bottomNavView.visibility = View.GONE
     }
+    private fun Login() {
+        val email = view?.findViewById<EditText>(R.id.sign_in_name)?.getText().toString()
+        val password = view?.findViewById<EditText>(R.id.sign_in_password)?.getText().toString()
+        if (email.length > 0 && password.length > 0) {
+            auth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(requireActivity()) { task ->
+                    if (task.isSuccessful) {
+                        val user = auth.currentUser
+                        findNavController().navigate(R.id.action_startFragment_to_mainFragment)
+                    }
+                }
+        }
+        }
+    }
     private fun showToast(context: Context, message: String) {
         Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
     }
-}
 
 class SignupFragment : Fragment(R.layout.sign_up_page) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        auth = Firebase.auth
         val checkBox = view.findViewById<CheckBox>(R.id.sign_up_checkBox)
         val signUpButton = view.findViewById<Button>(R.id.sign_up_page_btn)
 
@@ -61,6 +82,7 @@ class SignupFragment : Fragment(R.layout.sign_up_page) {
     private fun updateButtonListener(button: Button, isChecked: Boolean) {
         button.setOnClickListener {
             if (isChecked) {
+                signUp()
                 showToast(requireContext(), "가입에 성공하였습니다.")
                 findNavController().navigate(R.id.action_signupFragment_to_startFragment)
             } else {
@@ -68,7 +90,17 @@ class SignupFragment : Fragment(R.layout.sign_up_page) {
             }
         }
     }
-
+    private fun signUp(){
+        val email = view?.findViewById<EditText>(R.id.sign_up_email)?.getText().toString()
+        val password = view?.findViewById<EditText>(R.id.sign_up_password)?.getText().toString()
+        val passwordCheck = view?.findViewById<EditText>(R.id.sign_up_password_check)?.getText().toString()
+        auth.createUserWithEmailAndPassword(email, password)
+            .addOnCompleteListener(requireActivity()) { task ->
+                if (task.isSuccessful) {
+                    val user = auth.currentUser
+                }
+            }
+    }
     private fun showToast(context: Context, message: String) {
         Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
     }
