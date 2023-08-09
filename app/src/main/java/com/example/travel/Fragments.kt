@@ -11,8 +11,15 @@ import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.OnMapReadyCallback
+import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.CameraPosition
+import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
@@ -24,7 +31,7 @@ class StartFragment : Fragment(R.layout.start_page) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         // Initialize Firebase Auth
         auth = Firebase.auth
-        val name = view.findViewById<EditText>(R.id.sign_in_name)
+        val name = view.findViewById<EditText>(R.id.sign_in_email)
         val signInButton = view.findViewById<Button>(R.id.sign_in_btn)
 
         //로그인 버튼 눌렀을 때 메인 화면으로 전환
@@ -42,7 +49,7 @@ class StartFragment : Fragment(R.layout.start_page) {
         bottomNavView.visibility = View.GONE
     }
     private fun Login() {
-        val email = view?.findViewById<EditText>(R.id.sign_in_name)?.getText().toString()
+        val email = view?.findViewById<EditText>(R.id.sign_in_email)?.getText().toString()
         val password = view?.findViewById<EditText>(R.id.sign_in_password)?.getText().toString()
         if (email.length > 0 && password.length > 0) {
             auth.signInWithEmailAndPassword(email, password)
@@ -138,7 +145,35 @@ class ChoiceFragment : Fragment(R.layout.choice_page){
         bottomNavView.visibility = View.GONE
     }
 }
+/*
+class MapFragment : AppCompatActivity(), OnMapReadyCallback {
+    lateinit var binding: ActivityMapBinding
+    var googleMap: GoogleMap? = null
+    //지도 뷰 객체 얻기
+    override fun onCreate(savedInstanceState: Bundle?){
+        super.onCreate(savedInstanceState)
+        binding = ActivityMapBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        (supportFragmentManager.findFragmentById(R.id.mapView) as
+                SupportMapFragment?)!!.getMapAsync(this)
+    }
+    override fun onMapReady(p0: GoogleMap) {
+        googleMap = p0
+    }
+    //지도의 중심 이동
+    val latLng = LatLng(37.566610, 126.978403)
+    val position = CameraPosition.Builder()
+        .target(latLng)
+        .zoom(16f)
+        .build()
+    googleMap?.moveCamera(CameraUpdateFactory.newCameraPosition(position))
+    //마커 표시
+    val markerOptions = MarkerOptions()
+    markerOptions.icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_marker))
+    markerOptions.position(latLng)
+    markerOptions.title("서울시청")
+    markerOptions.snippet("Tel:01-120")
 
-class MapFragment : Fragment(R.layout.map_page){
-
+    googleMap?.addMarker(markerOptions)
 }
+ */
