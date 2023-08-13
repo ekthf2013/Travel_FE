@@ -22,7 +22,7 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.ktx.auth
+//import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
 private lateinit var auth: FirebaseAuth
@@ -30,7 +30,7 @@ class StartFragment : Fragment(R.layout.start_page) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         // Initialize Firebase Auth
-        auth = Firebase.auth
+        //auth = Firebase.auth
         val name = view.findViewById<EditText>(R.id.sign_in_email)
         val signInButton = view.findViewById<Button>(R.id.sign_in_btn)
 
@@ -69,7 +69,7 @@ class StartFragment : Fragment(R.layout.start_page) {
 class SignupFragment : Fragment(R.layout.sign_up_page) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        auth = Firebase.auth
+        //auth = Firebase.auth
         val checkBox = view.findViewById<CheckBox>(R.id.sign_up_checkBox)
         val signUpButton = view.findViewById<Button>(R.id.sign_up_page_btn)
 
